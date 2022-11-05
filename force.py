@@ -1,5 +1,4 @@
-import pygame, sys
-pygame.init()
+import pygame
 
 class force:
     def __init__(self):

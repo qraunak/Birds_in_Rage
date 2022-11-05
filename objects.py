@@ -1,39 +1,36 @@
-import pygame, sys
-
+import os
+import pygame
+from parameters import *
 
 class Bird(pygame.sprite.Sprite):
-    def __init__(self, bird_x,bird_y, bird_picture_path, bird_fx_path):
+    def __init__(self, position):
         super().__init__()
-        self.image
-        self.img_rect = self.image.get_rect()
-        self.img_rect.center = [bird_x, bird_y] 
-        self.soundfx 
-        pass
-    def locate(self):
-        return self.img_rect.center
-    def collide(self, group_name):
-        self.soundfx.play() 
-        pygame.sprite.spritecollide(Bird,group_name,True)#true or false, second one disappears
-        #technically it should be false
-        pass
+        image_path = os.path.join('Images', 'angry-bird-icon_48.png')
+        self.image = pygame.image.load(image_path).convert_alpha()
+        self.image = pygame.transform.scale(self.image, BIRD_SIZE)
+        self.rect = self.image.get_rect()
+        self.rect.center = position
 
-class Piggy(pygame.sprite.Sprite) :
-    def __init__(self, pig_x,pig_y, pig_picture_path, pig_fx_path):
+    def locate(self):
+        return self.rect.center
+
+    def collide(self, group_name):
+        self.soundfx.play()
+        pygame.sprite.spritecollide(Bird, group_name, True)
+
+
+class Piggy(pygame.sprite.Sprite):
+    def __init__(self, position):
         super().__init__()
-        self.image 
-        self.img_rect = self.image.get_rect()
-        self.img_rect.center = [pig_x, pig_y] 
-        self.soundfx
-        pass
+        image_path = os.path.join('Images', 'Pig-icon_48.png')
+        self.image = pygame.image.load(image_path).convert_alpha()
+        self.image = pygame.transform.scale(self.image, PIG_SIZE)
+        self.rect = self.image.get_rect()
+        self.rect.center = position
+
     def locate(self):
-        return self.img._rect.center
+        return self.rect.center
+
     def collide(self, group_name):
-        self.soundfx.play() 
-        pygame.sprite.spritecollide(Piggy,group_name,True)#true or false, second one disappears
-        pass
-
-#===========================================================
-#              Add obstacles and other objects
-#===========================================================
-
-
+        self.soundfx.play()
+        pygame.sprite.spritecollide(Piggy, group_name, True)

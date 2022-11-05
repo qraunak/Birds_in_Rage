@@ -6,7 +6,6 @@ class GameWindow:
     def __init__(self):
         self.surface = pygame.display.set_mode(WIN_SIZE)
         self.set_caption_icon()
-        self.attach_image()
 
     def set_caption_icon(self):
         image_path = os.path.join('Images', 'angry-bird-icon_32.png')
@@ -14,7 +13,7 @@ class GameWindow:
         pygame.display.set_icon(image)
         pygame.display.set_caption(CAPTION)
 
-    def attach_image(self):
+    def paint_background(self):
         self.add_image('background.jpg', WIN_SIZE, ORIGIN)
         self.add_image('hook.png', (30, 100), (150, WIN_HEIGHT-150))
         self.add_image('wooden_block_4.png', (50, 40), (140, WIN_HEIGHT-50))

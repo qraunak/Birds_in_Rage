@@ -1,13 +1,10 @@
 import pygame
 
-class force:
+
+class Force:
+
     def __init__(self):
         self.gravity=9.8
-        #=================================================
-        #           Add suitable parameters
-        #=================================================
+
     def update_everything(self):
-        #=================================================
-        #  Make Sure everybody knows their Newton's laws
-        #=================================================
         pass

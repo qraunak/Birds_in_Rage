@@ -2,14 +2,15 @@ import os
 import pygame
 from parameters import *
 
+
 class Bird(pygame.sprite.Sprite):
-    def __init__(self, position):
+    def __init__(self, x, y):
         super().__init__()
-        image_path = os.path.join('Images', 'angry-bird-icon_48.png')
+        image_path = os.path.join('Images', 'angry-bird-icon_32.png')
         self.image = pygame.image.load(image_path).convert_alpha()
         self.image = pygame.transform.scale(self.image, BIRD_SIZE)
-        self.rect = self.image.get_rect()
-        self.rect.center = position
+        self.rect = self.image.get_rect(left=x, top=y)
+        #pygame.Rect()
 
     def locate(self):
         return self.rect.center

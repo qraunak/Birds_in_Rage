@@ -4,11 +4,13 @@ from parameters import *
 from gameWindow import GameWindow
 from objects import Bird, Piggy
 
+
 def event_handler():
-    for event in pygame.event.get ( ) :
-        if event.type == pygame.QUIT :
-            pygame.quit ( )
-            sys.exit ( )
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+
 
 def main():
 
@@ -17,16 +19,20 @@ def main():
     pig_group = pygame.sprite.Group()
     clock = pygame.time.Clock()
 
-    bird_1 = Bird((0, 10))
-    bird_2 = Bird((100, 10))
-    bird_3 = Bird((200, 10))
+    bird_1 = Bird(20, OBJ_BOTTOM)
+    bird_2 = Bird(60, OBJ_BOTTOM)
+    bird_3 = Bird(100, OBJ_BOTTOM)
 
-    pig = Piggy((50, 50))
+    pig_1 = Piggy((610, WIN_HEIGHT-100))
+    pig_2 = Piggy((760, WIN_HEIGHT-185))
+    pig_3 = Piggy((900, WIN_HEIGHT-255))
 
     bird_group.add(bird_1)
     bird_group.add(bird_2)
     bird_group.add(bird_3)
-    pig_group.add(pig)
+    pig_group.add(pig_1)
+    pig_group.add(pig_2)
+    pig_group.add(pig_3)
 
     while True:
         event_handler()
